@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "deploy": "ng build --output-path docs --base-href /benar99-ANGULAR2023Q4/"
   },
   "private": true,
   "dependencies": {
