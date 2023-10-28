@@ -1,0 +1,41 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #E5E5E5;
+
+  app-header-profile {
+    position: absolute;
+    right: 148px;
+  }
+}
+
+
+
+.search-input {
+  margin-left: 10px;
+  background: #EFEFEF;
+  width: 396px;
+  outline: none;
+  padding: 5px 5px 3px;
+  border: none;
+}
+
+.search-input::placeholder {
+  color: #929292;
+  font-size: 12px;
+}
+
+.search-button {
+  font-size: 12px;
+  padding: 5px 22px;
+  border: #2F80ED;
+  color: #FFFFFF;
+  margin-right: 10px;
+}
+
+.search-button, .setting {
+  background: #2F80ED;
+  border-radius: 0 4px 4px 0;
+  box-shadow: 2px 0 4px 0 #2F80ED;
+}
