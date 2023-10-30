@@ -9,5 +9,9 @@ import { VideoPreviewListComponent } from './components/video-preview-list/video
   imports: [
     CommonModule,
   ],
+  exports: [
+    VideoPreviewComponent,
+    VideoPreviewListComponent,
+  ],
 })
 export class VideoModule { }

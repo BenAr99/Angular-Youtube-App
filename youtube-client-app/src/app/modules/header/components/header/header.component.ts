@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
+  searchValue = '';
 
+  onSearchButtonClick() :void {
+    console.log('Poisk proshel', this.searchValue);
+  }
 }

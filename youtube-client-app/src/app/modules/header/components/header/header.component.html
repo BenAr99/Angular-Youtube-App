@@ -1,6 +1,7 @@
 <img src="assets/icons/LOGO.png" alt="logo youtube">
-<input placeholder="What are you want to find out?" class="search-input">
-<button class="search-button">search</button>
+<input [(ngModel)]="searchValue" placeholder="What are you want to find out?" class="search-input">
+<button class="search-button" (click)="onSearchButtonClick()">search</button>
+
 <img class="setting" src="assets/icons/search_settings.svg" alt="setting">
 <app-header-profile></app-header-profile>
 
