@@ -1,5 +1,6 @@
-<div>
-  <img src="https://i.ytimg.com/vi/Fdf5aTYRW0E/mqdefault.jpg" alt="">
-
+<div class="main">
+    <img src="{{videoCard?.snippet?.thumbnails?.medium?.url}}" alt="">
     <app-video-rating-list [videoCard]="videoCard?.statistics"></app-video-rating-list>
+    <span class="title">{{videoCard?.snippet?.title}}</span>
+    <button class="more-button">more...</button>
 </div>

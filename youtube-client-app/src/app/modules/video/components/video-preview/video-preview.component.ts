@@ -11,5 +11,6 @@ export class VideoPreviewComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.videoCard);
+    console.log(this.videoCard?.snippet.title, 'sdfg');
   }
 }

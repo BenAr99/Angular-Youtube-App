@@ -1,0 +1,44 @@
+:host {
+  display: block;
+  position: relative;
+  width: 243px;
+  height: 327px;
+  padding: 20px 21px 15px 19px;
+  margin: 15px;
+  border-radius: 5px;
+  background: #E5E5E5;
+  border-bottom: 5px solid blue;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  color: #4F4F4F;
+  text-align: right;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 21px;
+}
+
+img {
+  width: 223px;
+  height: 123px;
+  margin-bottom: 21px;
+}
+
+.more-button {
+  position: absolute;
+  bottom: 15px;
+  color: #FFFFFF;
+  font-size: 12px;
+  width: 120px;
+  border: 0;
+  border-radius: 5px;
+  background: #2F80ED;
+  box-shadow: 2px 0 4px 0 #2F80ED;
+  padding: 6px 25px 6px 31px;
+}
