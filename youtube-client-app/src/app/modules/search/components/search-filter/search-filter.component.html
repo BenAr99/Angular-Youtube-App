@@ -1,1 +1,4 @@
-<p>search-filter works!</p>
+<form (ngSubmit)="onSearchButtonClick()">
+  <input [(ngModel)]="searchValue" placeholder="What are you want to find out?" name="searchValue" class="search-input">
+  <button   class="search-button" (click)="onSearchButtonClick()">search</button>
+</form>

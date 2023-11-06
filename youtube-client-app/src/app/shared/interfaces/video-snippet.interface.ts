@@ -2,7 +2,7 @@ import { VideoThumbnails } from './video-thumbnails.interface';
 import { VideoLocalization } from './video-localization.interface';
 
 export interface VideoSnippet {
-  publishedAt: string,
+  publishedAt: string | number,
   channelId: string,
   title: string,
   description: string;

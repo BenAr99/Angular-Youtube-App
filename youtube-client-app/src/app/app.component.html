@@ -1,2 +1,3 @@
-<app-header></app-header>
-<app-video-preview-list></app-video-preview-list>
+<app-header (filterChange)="onSearchButtonClickFromHeader($event)"></app-header>
+<app-video-preview-list [searchValue]="resultSearchValueFromHeader"></app-video-preview-list>
+

@@ -6,11 +6,6 @@ import { VideoPreview } from '../../../../shared/interfaces/video-preview.interf
   templateUrl: './video-preview.component.html',
   styleUrls: ['./video-preview.component.scss'],
 })
-export class VideoPreviewComponent implements OnInit {
+export class VideoPreviewComponent {
   @Input() videoCard?: VideoPreview;
-
-  ngOnInit() {
-    console.log(this.videoCard);
-    console.log(this.videoCard?.snippet.title, 'sdfg');
-  }
 }

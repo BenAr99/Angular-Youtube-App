@@ -1,1 +1,10 @@
-<p>search-settings works!</p>
+<span>Sorting by:</span>
+<span class="interactive" (click)="sortDataDate()">date</span>
+<span class="interactive" (click)="sortDataViews()">count of views</span>
+<span class="interactive" (click)="sortDataWordOrSentance()">by word or sentance</span>
+<form (ngSubmit)="sortDataWordOrSentance()">
+  <label for="sortSearch"></label>
+  <input  [(ngModel)]="wordOrSentance"  id="sortSearch" name="wordOrSentance">
+</form>
+
+

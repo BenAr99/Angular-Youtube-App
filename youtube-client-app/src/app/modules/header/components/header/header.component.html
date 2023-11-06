@@ -1,7 +1,8 @@
-<img src="assets/icons/LOGO.png" alt="logo youtube">
-<input [(ngModel)]="searchValue" placeholder="What are you want to find out?" class="search-input">
-<button class="search-button" (click)="onSearchButtonClick()">search</button>
+<div class="main-header">
+  <img src="assets/icons/LOGO.png" alt="logo youtube">
+  <app-search-filter (resultSearchValue)="searchValueChange($event)"></app-search-filter>
+  <img (click)="setting()" class="setting" src="assets/icons/search_settings.svg" alt="setting">
+  <app-header-profile></app-header-profile>
+</div>
 
-<img class="setting" src="assets/icons/search_settings.svg" alt="setting">
-<app-header-profile></app-header-profile>
-
+<app-search-settings (sortArray)="sortValueChange($event)" *ngIf="isSetting"></app-search-settings>

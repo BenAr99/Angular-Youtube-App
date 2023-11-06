@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FilterChange } from './shared/interfaces/filter-change.interface';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  resultSearchValueFromHeader?:FilterChange;
+
   title = 'youtube-client-app';
+
+  onSearchButtonClickFromHeader(resultSearchValue:FilterChange) {
+    this.resultSearchValueFromHeader = resultSearchValue;
+  }
 }

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FilterChange } from '../../../../shared/interfaces/filter-change.interface';
+import { SortSetting } from '../../../../shared/interfaces/sort-setting.interface';
 
 @Component({
   selector: 'app-header',
@@ -6,9 +8,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  searchValue = '';
+  @Output() filterChange = new EventEmitter<FilterChange>();
 
-  onSearchButtonClick() :void {
-    console.log('Poisk proshel', this.searchValue);
+  private searchValue?: string;
+
+  private sortValue?: SortSetting;
+
+  isSetting = false;
+
+  searchValueChange(value:string): void {
+    this.searchValue = value;
+    this.filterChange.emit({ filter: this.searchValue, sort: this.sortValue });
+  }
+
+  sortValueChange(value:SortSetting): void {
+    this.sortValue = value;
+    this.filterChange.emit({ filter: this.searchValue, sort: this.sortValue });
+  }
+
+  setting(): void {
+    this.isSetting = !this.isSetting;
   }
 }

@@ -1,0 +1,24 @@
+:host {
+  width: 479px;
+  padding: 18px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+span {
+  color: #929292;
+  font-size: 12px;
+}
+
+.interactive {
+  color: #2F80ED;
+  cursor: pointer;
+}
+
+input {
+  border: 0;
+  outline: none;
+  border: none;
+}
+
