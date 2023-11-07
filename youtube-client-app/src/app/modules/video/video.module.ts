@@ -6,13 +6,20 @@ import { VideoPreviewListComponent } from './components/video-preview-list/video
 import { SortColorDirective } from '../../shared/directives/sort-color.directive';
 import { FilterVideoPipe } from './pipes/filter-video.pipe';
 import { SortVideoDataPipe } from './pipes/sort-video-data.pipe';
+import { ButtonComponent } from '../../shared/components/button/button.component';
 
 @NgModule({
   declarations: [
-    VideoPreviewComponent, VideoPreviewListComponent, VideoRatingListComponent, SortColorDirective, FilterVideoPipe, SortVideoDataPipe,
+    VideoPreviewComponent,
+    VideoPreviewListComponent,
+    VideoRatingListComponent,
+    SortColorDirective,
+    FilterVideoPipe,
+    SortVideoDataPipe,
   ],
   imports: [
     CommonModule,
+    ButtonComponent,
   ],
   exports: [
     VideoPreviewComponent,

@@ -1,5 +1,5 @@
 :host {
-  display: block;
+  display: flex;
   position: relative;
   width: 243px;
   height: 327px;
@@ -8,6 +8,12 @@
   border-radius: 5px;
   background: #E5E5E5;
   border-bottom: 5px solid blue;
+  flex-direction: column;
+  align-items: center;
+  app-button {
+    position: absolute;
+    bottom: 15px;
+  }
 }
 
 .main {
@@ -30,15 +36,4 @@ img {
   margin-bottom: 21px;
 }
 
-.more-button {
-  position: absolute;
-  bottom: 15px;
-  color: #FFFFFF;
-  font-size: 12px;
-  width: 120px;
-  border: 0;
-  border-radius: 5px;
-  background: #2F80ED;
-  box-shadow: 2px 0 4px 0 #2F80ED;
-  padding: 6px 25px 6px 31px;
-}
+

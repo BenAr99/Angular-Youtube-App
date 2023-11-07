@@ -23,7 +23,7 @@ export class SortVideoDataPipe implements PipeTransform {
         Object.values(sort).forEach((value) => {
           if (sort !== undefined) {
             const typeSort = Object.keys(sort);
-            if (typeSort[elementTypeSort] === 'date' || 'countOfViews') {
+            if (typeSort[elementTypeSort] === 'date' || typeSort[elementTypeSort] === 'countOfViews') {
               this.sortDateOfView(resultVideoData, value, typeSort[elementTypeSort]);
             }
             if (typeSort[elementTypeSort] === 'wordOrSentance') {
@@ -38,7 +38,11 @@ export class SortVideoDataPipe implements PipeTransform {
     return [];
   }
 
-  sortDateOfView(videoData:VideoPreview[], statusValue: SortStatus | string, typeSort: string): VideoPreview[] {
+  sortDateOfView(
+    videoData:VideoPreview[],
+    statusValue: SortStatus | string,
+    typeSort: string,
+  ): VideoPreview[] {
     videoData.forEach((value) => {
       // eslint-disable-next-line no-param-reassign
       value.snippet.publishedAt = new Date(value.snippet.publishedAt).getTime();
@@ -49,10 +53,15 @@ export class SortVideoDataPipe implements PipeTransform {
         return videoData;
       case 'desc':
         return videoData.sort((a, b) => {
-          return Number(this.pathVideoDate(a, b, typeSort)[1]) - Number(this.pathVideoDate(a, b, typeSort)[0]);
+          return Number(this.pathVideoDate(a, b, typeSort)[1])
+            - Number(this.pathVideoDate(a, b, typeSort)[0]);
         });
       case 'asc':
-        return videoData.sort((a, b) => Number(this.pathVideoDate(a, b, typeSort)[0]) - Number(this.pathVideoDate(a, b, typeSort)[1]));
+        return videoData.sort((a, b) => {
+          return Number(this.pathVideoDate(a, b, typeSort)[0])
+                  - Number(this.pathVideoDate(a, b, typeSort)[1]);
+        });
+
       default:
         return videoData;
     }

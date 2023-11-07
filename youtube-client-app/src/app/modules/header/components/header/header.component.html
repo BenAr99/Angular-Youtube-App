@@ -1,7 +1,9 @@
 <div class="main-header">
   <img src="assets/icons/LOGO.png" alt="logo youtube">
   <app-search-filter (resultSearchValue)="searchValueChange($event)"></app-search-filter>
-  <img (click)="setting()" class="setting" src="assets/icons/search_settings.svg" alt="setting">
+  <button (click)="setting()" class="button-img-setting">
+    <img class="setting" src="assets/icons/search_settings.svg" alt="setting">
+  </button>
   <app-header-profile></app-header-profile>
 </div>
 

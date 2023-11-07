@@ -1,14 +1,13 @@
 :host {
   display: flex;
-  padding-left: 170px;
-
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background: #E5E5E5;
 
   app-header-profile {
-    margin-left: 148px;
+    position: absolute;
+    right: 148px;
   }
 }
 
@@ -24,4 +23,9 @@
   border-radius: 0 4px 4px 0;
   box-shadow: 2px 0 4px 0 #2F80ED;
   cursor: pointer;
+}
+
+.button-img-setting {
+  padding-top: 5px;
+  border: 0;
 }
