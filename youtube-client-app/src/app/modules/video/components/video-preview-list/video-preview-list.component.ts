@@ -18,31 +18,31 @@ export class VideoPreviewListComponent implements OnChanges {
   videoData: VideoPreview[] = [];
 
   constructor(private dataService: VideoResponseService) {
+    this.videoData = dataService.getData();
   }
 
   ngOnChanges(): void {
-    const filterSearch = this.searchValue?.filter;
-    if (filterSearch) {
-      this.videoData = this.dataService.getData().filter((value) => {
-        return value.snippet.title.toLowerCase().includes(filterSearch.toLowerCase());
-      });
-    }
-    let i = 0;
-    if (this.searchValue?.sort !== undefined) {
-      Object.values(this.searchValue?.sort).forEach((value) => {
-        if (this.searchValue?.sort !== undefined) {
-          const typeSort = Object.keys(this.searchValue?.sort);
-          if (typeSort[i] === 'date' || 'countOfViews') {
-            this.sortDateOfView(value, typeSort[i]);
-          }
-          if (typeSort[i] === 'wordOrSentance') {
-            this.sortByWord(value);
-          }
-          i += 1;
-          // задать норм название I, она если что показывает элементы typeSort
-        }
-      });
-    }
+    // const filterSearch = this.searchValue?.filter;
+    // if (filterSearch) {
+    //   this.videoData = this.dataService.getData().filter((value) => {
+    //     return value.snippet.title.toLowerCase().includes(filterSearch.toLowerCase());
+    //   });
+    // // }
+    // let elementTypeSort = 0;
+    // if (this.searchValue?.sort !== undefined) {
+    //   Object.values(this.searchValue?.sort).forEach((value) => {
+    //     if (this.searchValue?.sort !== undefined) {
+    //       const typeSort = Object.keys(this.searchValue?.sort);
+    //       if (typeSort[elementTypeSort] === 'date' || 'countOfViews') {
+    //         this.sortDateOfView(value, typeSort[elementTypeSort]);
+    //       }
+    //       if (typeSort[elementTypeSort] === 'wordOrSentance') {
+    //         this.sortByWord(value);
+    //       }
+    //       elementTypeSort += 1;
+    //     }
+    //   });
+    // }
   }
 
   sortDateOfView(statusValue: SortStatus | string, typeSort: string): undefined {
@@ -57,12 +57,12 @@ export class VideoPreviewListComponent implements OnChanges {
       case 'desc':
         this.videoData.sort((a, b) => {
           // eslint-disable-next-line @typescript-eslint/no-use-before-define
-          return Number(this.pathVideoDate(a, b, typeSort)[0]) - Number(this.pathVideoDate(a, b, typeSort)[1]);
+          return Number(this.pathVideoDate(a, b, typeSort)[1]) - Number(this.pathVideoDate(a, b, typeSort)[0]);
         });
         break;
       case 'asc':
         // eslint-disable-next-line @typescript-eslint/no-use-before-define
-        this.videoData.sort((a, b) => Number(this.pathVideoDate(a, b, typeSort)[1]) - Number(this.pathVideoDate(a, b, typeSort)[0]));
+        this.videoData.sort((a, b) => Number(this.pathVideoDate(a, b, typeSort)[0]) - Number(this.pathVideoDate(a, b, typeSort)[1]));
         break;
       default:
         break;
@@ -81,7 +81,7 @@ export class VideoPreviewListComponent implements OnChanges {
       return [a.snippet.publishedAt, b.snippet.publishedAt];
     }
     if (typeSort === 'countOfViews') {
-      return [b.statistics.viewCount, a.statistics.viewCount];
+      return [a.statistics.viewCount, b.statistics.viewCount];
     }
     return [a.snippet.publishedAt, b.snippet.publishedAt];
     // Я хз как еще return Обойти вставил не нужное значение
