@@ -12,78 +12,12 @@ import { SortStatus } from '../../../../shared/enum/sort-button-status.enum';
   templateUrl: './video-preview-list.component.html',
   styleUrls: ['./video-preview-list.component.scss'],
 })
-export class VideoPreviewListComponent implements OnChanges {
+export class VideoPreviewListComponent {
   @Input() searchValue?: FilterChange;
 
   videoData: VideoPreview[] = [];
 
   constructor(private dataService: VideoResponseService) {
     this.videoData = dataService.getData();
-  }
-
-  ngOnChanges(): void {
-    // const filterSearch = this.searchValue?.filter;
-    // if (filterSearch) {
-    //   this.videoData = this.dataService.getData().filter((value) => {
-    //     return value.snippet.title.toLowerCase().includes(filterSearch.toLowerCase());
-    //   });
-    // // }
-    // let elementTypeSort = 0;
-    // if (this.searchValue?.sort !== undefined) {
-    //   Object.values(this.searchValue?.sort).forEach((value) => {
-    //     if (this.searchValue?.sort !== undefined) {
-    //       const typeSort = Object.keys(this.searchValue?.sort);
-    //       if (typeSort[elementTypeSort] === 'date' || 'countOfViews') {
-    //         this.sortDateOfView(value, typeSort[elementTypeSort]);
-    //       }
-    //       if (typeSort[elementTypeSort] === 'wordOrSentance') {
-    //         this.sortByWord(value);
-    //       }
-    //       elementTypeSort += 1;
-    //     }
-    //   });
-    // }
-  }
-
-  sortDateOfView(statusValue: SortStatus | string, typeSort: string): undefined {
-    this.videoData.forEach((value) => {
-      // eslint-disable-next-line no-param-reassign
-      value.snippet.publishedAt = new Date(value.snippet.publishedAt).getTime();
-    });
-
-    switch (statusValue) {
-      case 'notIncluded':
-        break;
-      case 'desc':
-        this.videoData.sort((a, b) => {
-          // eslint-disable-next-line @typescript-eslint/no-use-before-define
-          return Number(this.pathVideoDate(a, b, typeSort)[1]) - Number(this.pathVideoDate(a, b, typeSort)[0]);
-        });
-        break;
-      case 'asc':
-        // eslint-disable-next-line @typescript-eslint/no-use-before-define
-        this.videoData.sort((a, b) => Number(this.pathVideoDate(a, b, typeSort)[0]) - Number(this.pathVideoDate(a, b, typeSort)[1]));
-        break;
-      default:
-        break;
-    }
-    return undefined;
-  }
-
-  sortByWord(word:string) {
-    this.videoData = this.videoData.filter((value) => {
-      return value.snippet.title.toLowerCase().includes(word.toLowerCase());
-    });
-  }
-
-  private pathVideoDate(a: VideoPreview, b: VideoPreview, typeSort: string): (string | number)[] {
-    if (typeSort === 'date') {
-      return [a.snippet.publishedAt, b.snippet.publishedAt];
-    }
-    if (typeSort === 'countOfViews') {
-      return [a.statistics.viewCount, b.statistics.viewCount];
-    }
-    return [a.snippet.publishedAt, b.snippet.publishedAt];
-    // Я хз как еще return Обойти вставил не нужное значение
   }
 }
