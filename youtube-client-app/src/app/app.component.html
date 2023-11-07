@@ -1,1 +1,3 @@
-<h1>Youtube-client-app</h1>
+<app-header (filterChange)="onSearchButtonClickFromHeader($event)"></app-header>
+<app-video-preview-list [searchValue]="resultSearchValueFromHeader"></app-video-preview-list>
+

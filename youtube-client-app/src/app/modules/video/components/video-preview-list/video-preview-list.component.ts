@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import {
+  Component, Input,
+} from '@angular/core';
+import { VideoPreview } from '../../../../shared/interfaces/video-preview.interface';
+import { VideoResponseService } from '../../../../video-response.service';
+import { FilterChange } from '../../../../shared/interfaces/filter-change.interface';
 
 @Component({
   selector: 'app-video-preview-list',
@@ -6,5 +11,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./video-preview-list.component.scss'],
 })
 export class VideoPreviewListComponent {
+  @Input() searchValue?: FilterChange;
 
+  videoData: VideoPreview[] = [];
+
+  constructor(private dataService: VideoResponseService) {
+    this.videoData = dataService.getData();
+  }
 }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { VideoPreview } from '../../../../shared/interfaces/video-preview.interface';
 
 @Component({
   selector: 'app-video-preview',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./video-preview.component.scss'],
 })
 export class VideoPreviewComponent {
-
+  @Input() videoCard?: VideoPreview;
 }

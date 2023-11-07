@@ -1,0 +1,39 @@
+:host {
+  display: flex;
+  position: relative;
+  width: 243px;
+  height: 327px;
+  padding: 20px 21px 15px 19px;
+  margin: 15px;
+  border-radius: 5px;
+  background: #E5E5E5;
+  border-bottom: 5px solid blue;
+  flex-direction: column;
+  align-items: center;
+  app-button {
+    position: absolute;
+    bottom: 15px;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  color: #4F4F4F;
+  text-align: right;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 21px;
+}
+
+img {
+  width: 223px;
+  height: 123px;
+  margin-bottom: 21px;
+}
+
+
