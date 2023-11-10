@@ -1,0 +1,6 @@
+<div  class="main">
+    <img [src]="videoCard?.snippet?.thumbnails?.medium?.url" alt="">
+    <app-video-rating-list [videoCard]="videoCard?.statistics"></app-video-rating-list>
+    <span class="title">{{videoCard?.snippet?.title}}</span>
+    <app-button>more...</app-button>
+</div>

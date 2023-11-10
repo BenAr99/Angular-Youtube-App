@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { VideoPreview } from './shared/interfaces/video-preview.interface';
+import { VideoPreview } from './youtube/interfaces/video-preview.interface';
 import videos from './videos.json';
 
 @Injectable({

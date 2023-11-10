@@ -2,16 +2,18 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { HeaderModule } from './modules/header/header.module';
-import { VideoModule } from './modules/video/video.module';
+import { CoreModule } from './core/core.module';
+import { VideoModule } from './youtube/components/video/video.module';
+import { NotFoundComponent } from './youtube/pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
-    HeaderModule,
+    CoreModule,
     VideoModule,
   ],
   providers: [],

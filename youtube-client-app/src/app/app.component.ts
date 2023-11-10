@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FilterChange } from './shared/interfaces/filter-change.interface';
+import { FilterChange } from './youtube/interfaces/filter-change.interface';
 
 @Component({
   selector: 'app-root',
