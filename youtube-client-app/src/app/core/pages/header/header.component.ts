@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FilterChange } from '../../../youtube/interfaces/filter-change.interface';
 import { SortSetting } from '../../../youtube/interfaces/sort-setting.interface';
+import { FilterChangeService } from '../../../youtube/services/filter-change.service';
 
 @Component({
   selector: 'app-header',
@@ -16,14 +17,17 @@ export class HeaderComponent {
 
   isSetting = false;
 
+  constructor(private filterChangeService: FilterChangeService) {
+  }
+
   searchValueChange(value:string): void {
     this.searchValue = value;
-    this.filterChange.emit({ filter: this.searchValue, sort: this.sortValue });
+    this.filterChangeService.filterChange = { filter: this.searchValue, sort: this.sortValue };
   }
 
   sortValueChange(value:SortSetting): void {
     this.sortValue = value;
-    this.filterChange.emit({ filter: this.searchValue, sort: this.sortValue });
+    this.filterChangeService.filterChange = { filter: this.searchValue, sort: this.sortValue };
   }
 
   setting(): void {

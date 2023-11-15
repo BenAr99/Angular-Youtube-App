@@ -2,6 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { VideoPreview } from '../interfaces/video-preview.interface';
 import { SortStatus } from '../enum/sort-button-status.enum';
 import { FilterVideoPipe } from './filter-video.pipe';
+import { SortSetting } from '../interfaces/sort-setting.interface';
 
 @Pipe({
   name: 'sortVideoData',
@@ -11,11 +12,7 @@ export class SortVideoDataPipe implements PipeTransform {
 
   }
 
-  transform(videoData: VideoPreview[], sort?:{
-    date: SortStatus
-    countOfViews: SortStatus
-    wordOrSentance: string
-  }): VideoPreview[] {
+  transform(videoData: VideoPreview[], sort?:SortSetting): VideoPreview[] {
     let resultVideoData = [...videoData];
     if (resultVideoData && resultVideoData.length) {
       let elementTypeSort = 0;

@@ -1,10 +1,6 @@
-import { SortStatus } from '../enum/sort-button-status.enum';
+import { SortSetting } from './sort-setting.interface';
 
 export interface FilterChange {
   filter?: string,
-  sort?: {
-    date: SortStatus
-    countOfViews: SortStatus
-    wordOrSentance: string
-  },
+  sort?: SortSetting,
 }

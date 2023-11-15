@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { VideoPreview } from './youtube/interfaces/video-preview.interface';
-import videos from './videos.json';
+import { VideoPreview } from '../../youtube/interfaces/video-preview.interface';
+import videos from '../../videos.json';
 
 @Injectable({
   providedIn: 'root',

@@ -7,11 +7,5 @@ import { FilterChange } from './youtube/interfaces/filter-change.interface';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  resultSearchValueFromHeader?:FilterChange;
-
   title = 'youtube-client-app';
-
-  onSearchButtonClickFromHeader(resultSearchValue:FilterChange) {
-    this.resultSearchValueFromHeader = resultSearchValue;
-  }
 }
