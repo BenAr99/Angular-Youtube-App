@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { VideoPreviewListComponent } from './youtube/pages/video-preview-list/video-preview-list.component';
-import { NotFoundComponent } from './core/pages/not-found/not-found.component';
+import { NotFoundComponent } from './shared/pages/not-found/not-found.component';
 import { DetailVideoPreviewComponent } from './youtube/pages/detail-video-preview/detail-video-preview.component';
 
 const routes: Routes = [
