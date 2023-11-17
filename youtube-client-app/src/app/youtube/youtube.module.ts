@@ -1,9 +1,15 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { VideoModule } from './components/video/video.module';
+import { DetailVideoPreviewComponent } from './pages/detail-video-preview/detail-video-preview.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    DetailVideoPreviewComponent,
+  ],
+  providers: [
+    DatePipe,
+  ],
   imports: [
     CommonModule,
     VideoModule,

@@ -9,4 +9,10 @@ export class VideoResponseService {
   getData(): VideoPreview[] {
     return videos.items;
   }
+
+  getVideoById(id:string): VideoPreview | undefined {
+    return videos.items.find((value) => {
+      return value.id.includes(id);
+    });
+  }
 }

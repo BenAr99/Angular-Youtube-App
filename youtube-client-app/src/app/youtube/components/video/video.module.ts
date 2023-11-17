@@ -25,6 +25,8 @@ import { ButtonComponent } from '../button/button.component';
     VideoPreviewComponent,
     VideoPreviewListComponent,
     FilterVideoPipe,
+    VideoRatingListComponent,
+    SortColorDirective,
   ],
   providers: [
     FilterVideoPipe,

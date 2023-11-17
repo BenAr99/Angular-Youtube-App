@@ -10,12 +10,12 @@ export class SortColorDirective implements OnChanges {
   @HostBinding('style.border-bottom')
     borderBottom = 'none';
 
-  @Input() dateVideo!: string | number | Date; // воскл знак
+  @Input() dateVideo?: string | number | Date; // воскл знак
 
   todayDate = new Date().getTime();
 
   ngOnChanges() {
-    this.dateVideo = new Date(this.dateVideo).getTime();
+    this.dateVideo = new Date(String(this.dateVideo)).getTime();
     this.colorDetection(this.todayDate - this.dateVideo);
   }
 

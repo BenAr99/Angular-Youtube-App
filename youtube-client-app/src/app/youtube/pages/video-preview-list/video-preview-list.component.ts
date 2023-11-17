@@ -25,6 +25,5 @@ export class VideoPreviewListComponent implements DoCheck {
 
   ngDoCheck() {
     this.searchValue = this.filterChangeService.filterChange;
-    console.log(this.searchValue);
   }
 }

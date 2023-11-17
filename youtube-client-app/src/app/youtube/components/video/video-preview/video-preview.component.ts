@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { VideoPreview } from '../../../interfaces/video-preview.interface';
 
 @Component({
@@ -8,4 +9,11 @@ import { VideoPreview } from '../../../interfaces/video-preview.interface';
 })
 export class VideoPreviewComponent {
   @Input() videoCard?: VideoPreview;
+
+  constructor(private router: Router) {
+  }
+
+  navigateToDetailCard() {
+    this.router.navigate([`/detail/${this.videoCard?.id}`]);
+  }
 }
