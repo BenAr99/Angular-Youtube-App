@@ -1,0 +1,19 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  width: 270px;
+  background: #E0E0E0;
+  border: none;
+  padding: 5px 5px 3px;
+  outline: none;
+}
+
+label {
+  text-transform: capitalize;
+  color: #828282;
+  font-size: 10px;
+  font-weight: 400;
+}

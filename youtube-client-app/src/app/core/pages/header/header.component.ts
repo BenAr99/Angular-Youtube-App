@@ -1,7 +1,9 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { FilterChange } from '../../../youtube/interfaces/filter-change.interface';
 import { SortSetting } from '../../../youtube/interfaces/sort-setting.interface';
 import { FilterChangeService } from '../../../youtube/services/filter-change.service';
+import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +19,11 @@ export class HeaderComponent {
 
   isSetting = false;
 
-  constructor(private filterChangeService: FilterChangeService) {
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private filterChangeService: FilterChangeService,
+  ) {
   }
 
   searchValueChange(value:string): void {
@@ -32,5 +38,11 @@ export class HeaderComponent {
 
   setting(): void {
     this.isSetting = !this.isSetting;
+  }
+
+  test() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/auth']);
+    // можно ли как ту функцию guard вызвать а не писать навигацию?
   }
 }
