@@ -1,8 +1,0 @@
-<app-video-preview
-  appSortColor
-  *ngFor="let videoCard of videoData | filterVideo:searchValue?.filter | sortVideoData:searchValue?.sort"
-  [dateVideo]="videoCard.snippet.publishedAt"
-  [videoCard]="videoCard"
-></app-video-preview>
-
-

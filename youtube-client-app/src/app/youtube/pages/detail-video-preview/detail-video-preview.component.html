@@ -1,0 +1,13 @@
+<img [src]="detailCard?.snippet?.thumbnails?.maxres?.url" alt="">
+<div appSortColor [dateVideo]="detailCard?.snippet?.publishedAt" class="main">
+    <div class="name-date">
+        <span class="name">{{detailCard?.snippet?.title}}</span>
+        <span class="date">{{(this.date | date: 'fullDate')}}</span>
+    </div>
+    <p class="description">Description:</p>
+    <span class="description-text">{{detailCard?.snippet?.description}}</span>
+    <app-video-rating-list [videoCard]="detailCard?.statistics"></app-video-rating-list>
+</div>
+
+
+
