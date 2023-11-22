@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { VideoPreviewComponent } from './video-preview/video-preview.component';
 import { VideoRatingListComponent } from './video-rating-list/video-rating-list.component';
-import { VideoPreviewListComponent } from '../../pages/video-preview-list/video-preview-list.component';
 import { SortColorDirective } from '../../directives/sort-color.directive';
 import { FilterVideoPipe } from '../../pipes/filter-video.pipe';
 import { SortVideoDataPipe } from '../../pipes/sort-video-data.pipe';
@@ -11,7 +10,6 @@ import { ButtonComponent } from '../../../shared/components/button/button.compon
 @NgModule({
   declarations: [
     VideoPreviewComponent,
-    VideoPreviewListComponent,
     VideoRatingListComponent,
     SortColorDirective,
     FilterVideoPipe,
@@ -23,10 +21,10 @@ import { ButtonComponent } from '../../../shared/components/button/button.compon
   ],
   exports: [
     VideoPreviewComponent,
-    VideoPreviewListComponent,
     FilterVideoPipe,
     VideoRatingListComponent,
     SortColorDirective,
+    SortVideoDataPipe,
   ],
   providers: [
     FilterVideoPipe,

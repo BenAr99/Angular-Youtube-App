@@ -15,7 +15,7 @@ export class LoginComponent {
   }
 
   login() {
-    this.authService.isLoggedIn = !this.authService.isLoggedIn;
+    this.authService.isLoggedIn = true;
     this.router.navigate(['/home']);
     localStorage.setItem('token', String(this.authService.isLoggedIn));
   }
