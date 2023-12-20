@@ -1,5 +1,5 @@
 <app-video-preview
-  *ngFor="let videoCard of videoData | filterVideo:searchValue?.filter | sortVideoData:searchValue?.sort"
+  *ngFor="let videoCard of videoData"
   [id]="videoCard.id"
   [dateVideo]="videoCard.snippet.publishedAt"
   appSortColor

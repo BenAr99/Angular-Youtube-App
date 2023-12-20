@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { VideoModule } from './components/video/video.module';
 import { DetailVideoPreviewComponent } from './pages/detail-video-preview/detail-video-preview.component';
 import { VideoPreviewListComponent } from './pages/video-preview-list/video-preview-list.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
     VideoPreviewListComponent,
   ],
   providers: [
+    HttpClient,
     DatePipe,
   ],
   imports: [

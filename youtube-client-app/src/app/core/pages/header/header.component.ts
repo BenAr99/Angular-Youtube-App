@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { delay } from 'rxjs';
 import { FilterChange } from '../../../youtube/interfaces/filter-change.interface';
 import { SortSetting } from '../../../youtube/interfaces/sort-setting.interface';
 import { FilterChangeService } from '../../../youtube/services/filter-change.service';
@@ -28,7 +29,8 @@ export class HeaderComponent {
 
   searchValueChange(value:string): void {
     this.searchValue = value;
-    this.filterChangeService.filterChange = { filter: this.searchValue, sort: this.sortValue };
+    // this.filterChangeService.filterChange = { filter: this.searchValue, sort: this.sortValue };
+    this.filterChangeService.filterChangeBySubject.next(this.searchValue);
   }
 
   sortValueChange(value:SortSetting): void {
