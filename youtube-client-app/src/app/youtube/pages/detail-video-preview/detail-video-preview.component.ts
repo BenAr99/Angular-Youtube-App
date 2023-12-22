@@ -2,7 +2,6 @@ import {
   Component, OnInit,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DatePipe } from '@angular/common';
 import { VideoPreview } from '../../interfaces/video-preview.interface';
 import { VideoResponseService } from '../../../core/services/video-response.service';
 
