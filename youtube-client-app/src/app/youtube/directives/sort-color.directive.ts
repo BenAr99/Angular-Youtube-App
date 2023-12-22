@@ -6,17 +6,19 @@ import { MarkingTime } from '../enum/marking-time.enum';
 @Directive({
   selector: '[appSortColor]',
 })
+
 export class SortColorDirective implements OnChanges {
   @HostBinding('style.border-bottom')
     borderBottom = 'none';
 
-  @Input() dateVideo?: string | number | Date; // воскл знак
+  @Input() dateVideo?: Date;
 
-  todayDate = new Date().getTime();
+  todayDate = new Date();
 
   ngOnChanges() {
-    this.dateVideo = new Date(String(this.dateVideo)).getTime();
-    this.colorDetection(this.todayDate - this.dateVideo);
+    if (this.dateVideo) {
+      this.colorDetection(this.todayDate.getTime() - this.dateVideo.getTime());
+    }
   }
 
   colorDetection(pastTense: number) {

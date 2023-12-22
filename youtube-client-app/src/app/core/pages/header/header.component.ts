@@ -16,7 +16,7 @@ export class HeaderComponent {
 
   private searchValue?: string;
 
-  private sortValue?: SortSetting;
+  private sortValue!: SortSetting;
 
   isSetting = false;
 
@@ -29,13 +29,12 @@ export class HeaderComponent {
 
   searchValueChange(value:string): void {
     this.searchValue = value;
-    // this.filterChangeService.filterChange = { filter: this.searchValue, sort: this.sortValue };
-    this.filterChangeService.filterChangeBySubject.next(this.searchValue);
+    this.filterChangeService.searchValueSubject.next(this.searchValue);
   }
 
   sortValueChange(value:SortSetting): void {
     this.sortValue = value;
-    this.filterChangeService.filterChange = { filter: this.searchValue, sort: this.sortValue };
+    this.filterChangeService.sortValueSubject.next(this.sortValue);
   }
 
   setting(): void {

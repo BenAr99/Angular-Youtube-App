@@ -18,6 +18,7 @@ export class SortVideoDataPipe implements PipeTransform {
       let elementTypeSort = 0;
       if (sort !== undefined) {
         Object.values(sort).forEach((value) => {
+          console.log(sort);
           if (sort !== undefined) {
             const typeSort = Object.keys(sort);
             if (typeSort[elementTypeSort] === 'date' || typeSort[elementTypeSort] === 'countOfViews') {
@@ -40,16 +41,13 @@ export class SortVideoDataPipe implements PipeTransform {
     statusValue: SortStatus | string,
     typeSort: string,
   ): VideoPreview[] {
-    videoData.forEach((value) => {
-      // eslint-disable-next-line no-param-reassign
-      value.snippet.publishedAt = new Date(value.snippet.publishedAt).getTime();
-    });
-
+    debugger;
     switch (statusValue) {
       case 'notIncluded':
         return videoData;
       case 'desc':
         return videoData.sort((a, b) => {
+          console.log(a, b, typeSort, 'asd');
           return Number(this.pathVideoDate(a, b, typeSort)[1])
             - Number(this.pathVideoDate(a, b, typeSort)[0]);
         });
@@ -73,7 +71,7 @@ export class SortVideoDataPipe implements PipeTransform {
 
   private pathVideoDate(a: VideoPreview, b: VideoPreview, typeSort: string): (string | number)[] {
     if (typeSort === 'date') {
-      return [a.snippet.publishedAt, b.snippet.publishedAt];
+      return [a.snippet.publishedAt.getTime(), b.snippet.publishedAt.getTime()];
     }
     if (typeSort === 'countOfViews') {
       return [a.statistics.viewCount, b.statistics.viewCount];

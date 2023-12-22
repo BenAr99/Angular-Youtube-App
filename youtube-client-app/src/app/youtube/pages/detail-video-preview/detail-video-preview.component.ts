@@ -3,7 +3,6 @@ import {
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DatePipe } from '@angular/common';
-import { Observable } from 'rxjs';
 import { VideoPreview } from '../../interfaces/video-preview.interface';
 import { VideoResponseService } from '../../../core/services/video-response.service';
 
@@ -15,7 +14,7 @@ import { VideoResponseService } from '../../../core/services/video-response.serv
 export class DetailVideoPreviewComponent implements OnInit {
   detailCard?: VideoPreview;
 
-  date?:string | Date | null;
+  date?: Date;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,10 +24,10 @@ export class DetailVideoPreviewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataService.getDataById(String(this.route.snapshot.paramMap.get('id')))
+    this.dataService.getDataById([String(this.route.snapshot.paramMap.get('id'))])
       .subscribe((video) => {
-        this.detailCard = video;
-        this.date = new Date(String(this.detailCard?.snippet?.publishedAt));
+        this.detailCard = video[0];
+        this.date = this.detailCard?.snippet?.publishedAt;
       });
   }
 }

@@ -2,11 +2,14 @@ import {
   Component, OnInit,
 } from '@angular/core';
 import {
-  debounceTime, filter,
+  debounceTime, filter, map, switchMap, tap,
 } from 'rxjs';
 import { VideoPreview } from '../../interfaces/video-preview.interface';
 import { VideoResponseService } from '../../../core/services/video-response.service';
 import { FilterChangeService } from '../../services/filter-change.service';
+import { FilterChange } from '../../interfaces/filter-change.interface';
+import { SortSetting } from '../../interfaces/sort-setting.interface';
+import { VideoStatistic } from '../../interfaces/video-statistic.interface';
 
 @Component({
   selector: 'app-video-preview-list',
@@ -16,6 +19,10 @@ import { FilterChangeService } from '../../services/filter-change.service';
 export class VideoPreviewListComponent implements OnInit {
   videoData: VideoPreview[] = [];
 
+  statistics?:VideoStatistic[];
+
+  sortValue?:SortSetting;
+
   constructor(
     private dataService: VideoResponseService,
     public filterChangeService: FilterChangeService,
@@ -23,14 +30,24 @@ export class VideoPreviewListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.filterChangeService.filterChangeBySubject.pipe(
+    this.filterChangeService.sortValueSubject.subscribe({
+      next: (data) => {
+        this.sortValue = data;
+      },
+    });
+    this.filterChangeService.searchValueSubject.pipe(
       debounceTime(1000),
-      filter((item) => item.length > 3),
+      filter((item) => item.length >= 3),
+      switchMap((value) => this.dataService.getData(value)),
+      map((data) => {
+        return data.map((video) => {
+          return video.id.videoId;
+        });
+      }),
+      switchMap((idArray) => this.dataService.getDataById(idArray)),
     ).subscribe({
       next: (data) => {
-        this.dataService.getData(data).subscribe((item) => {
-          this.videoData = item;
-        });
+        this.videoData = data;
       },
       error: (err) => console.error(`Произошла ошибка: ${err}`),
     });

@@ -15,7 +15,7 @@ export class VideoResponseService {
 
   }
 
-  getData(value?:string): Observable<VideoPreview[]> {
+  getData(value?: string): Observable<VideoPreview[]> {
     let params = new HttpParams()
       .append('key', this.tokenKey)
       .append('type', 'video')
@@ -25,19 +25,26 @@ export class VideoResponseService {
       params = params.append('q', value);
     }
     return this.http.get<VideoPreviewResponse>(`https://www.googleapis.com/youtube/v3/search?${params}`)
-      .pipe(map((item) => {
-        return item.items;
-      }));
+      .pipe(map(this.mapData));
   }
 
-  getDataById(id: string) {
+  getDataById(idArray: string[]) {
+    const joinedIdArray = idArray.join(',');
     const params = new HttpParams()
-      .append('id', id)
+      .append('id', joinedIdArray)
       .append('key', this.tokenKey)
       .append('part', 'snippet')
       .append('part', 'statistics');
-    return this.http.get<VideoPreviewResponse>('https://www.googleapis.com/youtube/v3/videos', { params }).pipe(map((item) => {
-      return item.items[0];
-    }));
+    return this.http.get<VideoPreviewResponse>('https://www.googleapis.com/youtube/v3/videos', { params })
+      .pipe(map(this.mapData));
+  }
+
+  private mapData(response:VideoPreviewResponse) {
+    return response.items.map((item) => {
+      console.log(new Date(item.snippet.publishedAt), 'log');
+      // eslint-disable-next-line no-param-reassign
+      item.snippet.publishedAt = new Date(item.snippet.publishedAt);
+      return item;
+    });
   }
 }

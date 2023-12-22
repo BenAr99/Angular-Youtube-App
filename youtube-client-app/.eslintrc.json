@@ -25,6 +25,7 @@
         "linebreak-style": "off",
         "arrow-body-style": "off",
         "class-methods-use-this": "off",
+        "prefer-destructuring": "off",
         "@angular-eslint/directive-selector": [
           "error",
           {

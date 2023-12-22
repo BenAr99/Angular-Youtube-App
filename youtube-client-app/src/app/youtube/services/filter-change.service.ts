@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { FilterChange } from '../interfaces/filter-change.interface';
+import { SortSetting } from '../interfaces/sort-setting.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FilterChangeService {
-  filterChangeBySubject = new Subject<string>();
+  searchValueSubject = new Subject<string>();
 
-  filterChange?: FilterChange;
+  sortValueSubject = new Subject<SortSetting>();
 }
