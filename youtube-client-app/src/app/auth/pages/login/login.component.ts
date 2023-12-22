@@ -8,15 +8,22 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  isLoggedIn?:boolean;
+
   constructor(
     private router: Router,
     private authService: AuthService,
   ) {
+    authService.isLoggedIn.subscribe({
+      next: (value) => {
+        this.isLoggedIn = value;
+      },
+    });
   }
 
   login() {
-    this.authService.isLoggedIn = true;
+    this.authService.isLoggedIn.next(true);
     this.router.navigate(['/home']);
-    localStorage.setItem('token', String(this.authService.isLoggedIn));
+    localStorage.setItem('token', String(this.isLoggedIn));
   }
 }

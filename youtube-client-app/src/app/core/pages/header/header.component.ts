@@ -42,7 +42,7 @@ export class HeaderComponent {
 
   exit() {
     localStorage.removeItem('token');
+    this.authService.isLoggedIn.next(false);
     this.router.navigate(['/auth']);
-    // можно ли как ту функцию guard вызвать а не писать навигацию?
   }
 }
