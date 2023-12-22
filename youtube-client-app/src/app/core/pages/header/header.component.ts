@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { delay } from 'rxjs';
 import { FilterChange } from '../../../youtube/interfaces/filter-change.interface';
 import { SortSetting } from '../../../youtube/interfaces/sort-setting.interface';
 import { FilterChangeService } from '../../../youtube/services/filter-change.service';

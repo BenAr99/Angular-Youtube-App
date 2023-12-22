@@ -19,7 +19,6 @@ export class DetailVideoPreviewComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private dataService: VideoResponseService,
-    private datePipe: DatePipe,
   ) {
   }
 

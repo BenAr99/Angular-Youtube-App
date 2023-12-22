@@ -18,7 +18,6 @@ export class SortVideoDataPipe implements PipeTransform {
       let elementTypeSort = 0;
       if (sort !== undefined) {
         Object.values(sort).forEach((value) => {
-          console.log(sort);
           if (sort !== undefined) {
             const typeSort = Object.keys(sort);
             if (typeSort[elementTypeSort] === 'date' || typeSort[elementTypeSort] === 'countOfViews') {
@@ -41,13 +40,11 @@ export class SortVideoDataPipe implements PipeTransform {
     statusValue: SortStatus | string,
     typeSort: string,
   ): VideoPreview[] {
-    debugger;
     switch (statusValue) {
       case 'notIncluded':
         return videoData;
       case 'desc':
         return videoData.sort((a, b) => {
-          console.log(a, b, typeSort, 'asd');
           return Number(this.pathVideoDate(a, b, typeSort)[1])
             - Number(this.pathVideoDate(a, b, typeSort)[0]);
         });

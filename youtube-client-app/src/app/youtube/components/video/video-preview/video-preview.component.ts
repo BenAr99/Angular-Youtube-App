@@ -14,7 +14,6 @@ export class VideoPreviewComponent {
   }
 
   navigateToDetailCard() {
-    debugger;
     this.router.navigate([`home/detail/${this.videoCard?.id}`]);
   }
 }

@@ -2,12 +2,11 @@ import {
   Component, OnInit,
 } from '@angular/core';
 import {
-  debounceTime, filter, map, switchMap, tap,
+  debounceTime, filter, map, switchMap,
 } from 'rxjs';
 import { VideoPreview } from '../../interfaces/video-preview.interface';
 import { VideoResponseService } from '../../../core/services/video-response.service';
 import { FilterChangeService } from '../../services/filter-change.service';
-import { FilterChange } from '../../interfaces/filter-change.interface';
 import { SortSetting } from '../../interfaces/sort-setting.interface';
 import { VideoStatistic } from '../../interfaces/video-statistic.interface';
 

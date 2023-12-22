@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { filter, map, Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { VideoPreview } from '../../youtube/interfaces/video-preview.interface';
-import videos from '../../videos.json';
 import { VideoPreviewResponse } from '../../youtube/interfaces/video-preview-response.interface';
 
 @Injectable({
@@ -41,7 +40,6 @@ export class VideoResponseService {
 
   private mapData(response:VideoPreviewResponse) {
     return response.items.map((item) => {
-      console.log(new Date(item.snippet.publishedAt), 'log');
       // eslint-disable-next-line no-param-reassign
       item.snippet.publishedAt = new Date(item.snippet.publishedAt);
       return item;
