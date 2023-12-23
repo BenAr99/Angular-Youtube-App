@@ -21,7 +21,7 @@ export class VideoResponseService {
     if (value) {
       params = params.append('q', value);
     }
-    return this.http.get<VideoPreviewResponse>(`https://www.googleapis.com/youtube/v3/search?${params}`)
+    return this.http.get<VideoPreviewResponse>(`search?${params}`)
       .pipe(map(this.mapData));
   }
 
@@ -32,7 +32,7 @@ export class VideoResponseService {
       .append('key', 'token')
       .append('part', 'snippet')
       .append('part', 'statistics');
-    return this.http.get<VideoPreviewResponse>(`https://www.googleapis.com/youtube/v3/videos?${params}`)
+    return this.http.get<VideoPreviewResponse>(`videos?${params}`)
       .pipe(map(this.mapData));
   }
 

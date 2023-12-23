@@ -7,15 +7,13 @@ import { AuthService } from '../../../auth/services/auth.service';
   styleUrls: ['./exit.component.scss'],
 })
 export class ExitComponent {
-  valueButton = 'login';
+  valueButton = '';
 
   constructor(
-    authService:AuthService,
+    private authService:AuthService,
   ) {
-    authService.isLoggedIn.subscribe({
+    this.authService.isLoggedIn.subscribe({
       next: (value) => {
-        debugger;
-        console.log(value, 'value');
         this.valueButton = 'login';
         if (value) {
           this.valueButton = 'exit';
