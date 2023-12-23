@@ -8,6 +8,8 @@ export class AuthService {
   isLoggedIn: Subject<boolean> = new Subject<boolean>();
 
   constructor() {
-    this.isLoggedIn.next(false);
+    if (localStorage.getItem('token')) {
+      this.isLoggedIn.next(true);
+    }
   }
 }

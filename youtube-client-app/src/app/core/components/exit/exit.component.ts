@@ -14,6 +14,8 @@ export class ExitComponent {
   ) {
     authService.isLoggedIn.subscribe({
       next: (value) => {
+        debugger;
+        console.log(value, 'value');
         this.valueButton = 'login';
         if (value) {
           this.valueButton = 'exit';

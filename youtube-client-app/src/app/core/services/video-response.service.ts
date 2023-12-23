@@ -8,15 +8,13 @@ import { VideoPreviewResponse } from '../../youtube/interfaces/video-preview-res
   providedIn: 'root',
 })
 export class VideoResponseService {
-  tokenKey = 'AIzaSyBrvhNcnESOsOQhsqDNCYReglSGSVxWz78';
-
   constructor(private http: HttpClient) {
 
   }
 
   getData(value?: string): Observable<VideoPreview[]> {
     let params = new HttpParams()
-      .append('key', this.tokenKey)
+      .append('key', 'token')
       .append('type', 'video')
       .append('part', 'snippet')
       .append('maxResult', '15');
@@ -31,10 +29,10 @@ export class VideoResponseService {
     const joinedIdArray = idArray.join(',');
     const params = new HttpParams()
       .append('id', joinedIdArray)
-      .append('key', this.tokenKey)
+      .append('key', 'token')
       .append('part', 'snippet')
       .append('part', 'statistics');
-    return this.http.get<VideoPreviewResponse>('https://www.googleapis.com/youtube/v3/videos', { params })
+    return this.http.get<VideoPreviewResponse>(`https://www.googleapis.com/youtube/v3/videos?${params}`)
       .pipe(map(this.mapData));
   }
 
