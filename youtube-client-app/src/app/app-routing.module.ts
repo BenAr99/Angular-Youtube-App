@@ -9,7 +9,6 @@ const routes: Routes = [
   { path: 'home', loadChildren: () => import('./youtube/youtube.module').then((load) => load.YoutubeModule), canActivate: [authGuard] },
   { path: '**', component: NotFoundComponent },
 ];
-// { path: 'new card', loadChildren() => import('./') }
 
 @NgModule({
   declarations: [],

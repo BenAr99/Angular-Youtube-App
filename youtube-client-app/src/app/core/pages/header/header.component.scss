@@ -4,11 +4,26 @@
   justify-content: center;
   align-items: center;
   background: #E5E5E5;
+  padding-left: 265px;
 
-  app-header-profile {
-    position: absolute;
-    right: 148px;
-  }
+
+  //app-header-profile {
+  //  position: absolute;
+  //  right: 148px;
+  //}
+}
+
+app-button :first-child {
+  width: 50px;
+}
+
+.logo-searchFilter {
+  padding-right: 20px;
+}
+
+div {
+  display: flex;
+  align-items: center;
 }
 
 .main-header {

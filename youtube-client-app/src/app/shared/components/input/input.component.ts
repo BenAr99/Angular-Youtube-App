@@ -19,6 +19,8 @@ export class InputComponent {
 
   @Input() type = 'text';
 
+  @Input() placeholder = '';
+
   @Input() disabled = false;
 
   errorOutPut?: string;
@@ -36,10 +38,12 @@ export class InputComponent {
   detectionError(error: ValidationErrors | null | undefined) {
     this.errorOutPut = '';
     if (error !== null && error !== undefined) {
+      const currentError = Object.keys(error)[0];
       if (error['required']) {
         this.errorOutPut = `Пожалуйста введите ${this.id}`;
+      } else if (currentError === 'minlength' || currentError === 'maxlength') {
+        this.errorOutPut = `${this.id} ${ValueErrors[currentError as keyof typeof ValueErrors]}`;
       } else {
-        const currentError = Object.keys(error)[0];
         this.errorOutPut = ValueErrors[currentError as keyof typeof ValueErrors];
       }
     }

@@ -1,12 +1,17 @@
 <div class="main-header">
-  <img src="assets/icons/LOGO.png" alt="logo youtube">
-  <app-search-filter (resultSearchValue)="searchValueChange($event)"></app-search-filter>
-  <button (click)="setting()" class="button-img-setting">
-    <img class="setting" src="assets/icons/search_settings.svg" alt="setting">
-  </button>
-<!--  <button (click)="">Create card</button>-->
-  <app-exit (click)="exit()"></app-exit>
-  <app-header-profile></app-header-profile>
+  <div class="logo-searchFilter">
+    <img src="assets/icons/LOGO.png" alt="logo youtube">
+    <app-search-filter (resultSearchValue)="searchValueChange($event)"></app-search-filter>
+    <button (click)="setting()" class="button-img-setting">
+      <img class="setting" src="assets/icons/search_settings.svg" alt="setting">
+    </button>
+  </div>
+  <div>
+    <app-button (click)="createCard()">Create card</app-button>
+    <app-exit (click)="exit()"></app-exit>
+    <app-header-profile></app-header-profile>
+  </div>
+
 </div>
 
 <app-search-settings (sortArray)="sortValueChange($event)" *ngIf="isSetting"></app-search-settings>

@@ -3,9 +3,9 @@
         [id]="id"
         (blur)="detectionError(this.ngControl.control?.errors)"
         [type]="type"
-        [disabled]="disabled"
+        [placeholder]="placeholder"
         [value]="value"
         (input)="updateChanges($event)">
-<span class="error-text">{{errorOutPut}}</span>
+<p class="error-text">{{errorOutPut}}</p>
 
 

@@ -41,7 +41,7 @@ export class HeaderComponent {
   }
 
   createCard() {
-    this.router.navigate(['/create']);
+    this.router.navigate(['home/createCard']);
   }
 
   exit() {

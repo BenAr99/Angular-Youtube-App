@@ -33,3 +33,7 @@ label {
   font-style: italic;
   padding-right: 5px;
 }
+
+.error-text:first-letter {
+  text-transform: uppercase;
+}
