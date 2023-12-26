@@ -40,6 +40,10 @@ export class HeaderComponent {
     this.isSetting = !this.isSetting;
   }
 
+  createCard() {
+    this.router.navigate(['/create']);
+  }
+
   exit() {
     localStorage.removeItem('token');
     this.authService.isLoggedIn.next(false);

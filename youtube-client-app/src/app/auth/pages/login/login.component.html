@@ -1,21 +1,15 @@
-<section class="page">
-  <div class="main">
-    <span class="main-header">Login</span>
-    <form class="center" [formGroup]="loginForm">
-      <app-input
-
-        formControlName="email" id="login"
-      ></app-input>
-
-      <app-input
-        formControlName="password" id="password"
-      ></app-input>
-    </form>
-    <div class="block-button">
-      <app-button [offBackgroundButton]="true" class="off-background-button">Registration</app-button>
-      <app-button (click)="login()">Login</app-button>
-    </div>
+<app-card-shell>
+  <app-card-name>Login</app-card-name>
+  <app-card-form [formGroup]="loginForm">
+    <app-input
+      formControlName="email" id="login"
+    ></app-input>
+    <app-input
+      formControlName="password" id="password"
+    ></app-input>
+  </app-card-form>
+  <div class="block-button">
+    <app-button [offBackgroundButton]="true" class="off-background-button">Registration</app-button>
+    <app-button (click)="login()">Login</app-button>
   </div>
-</section>
-
-
+</app-card-shell>

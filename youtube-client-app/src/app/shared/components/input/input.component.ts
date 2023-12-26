@@ -1,5 +1,5 @@
 import {
-  Component, Input, OnChanges, SimpleChanges,
+  Component, Input,
 } from '@angular/core';
 import {
   FormsModule, NgControl, ReactiveFormsModule, ValidationErrors,

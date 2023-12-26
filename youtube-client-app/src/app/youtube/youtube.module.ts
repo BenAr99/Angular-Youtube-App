@@ -5,6 +5,9 @@ import { HttpClient } from '@angular/common/http';
 import { VideoModule } from './components/video/video.module';
 import { DetailVideoPreviewComponent } from './pages/detail-video-preview/detail-video-preview.component';
 import { VideoPreviewListComponent } from './pages/video-preview-list/video-preview-list.component';
+import { CreateCardComponent } from './pages/create-card/create-card/create-card.component';
+import { AuthModule } from '../auth/auth.module';
+import { CardShellComponent } from '../shared/components/card-shell/card-shell.component';
 
 const routes: Routes = [
   {
@@ -21,6 +24,7 @@ const routes: Routes = [
   declarations: [
     DetailVideoPreviewComponent,
     VideoPreviewListComponent,
+    CreateCardComponent,
   ],
   providers: [
     HttpClient,
@@ -30,6 +34,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     VideoModule,
+    CardShellComponent,
   ],
   exports: [
     RouterModule,

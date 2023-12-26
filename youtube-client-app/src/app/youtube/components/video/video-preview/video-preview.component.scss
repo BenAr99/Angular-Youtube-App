@@ -1,8 +1,6 @@
 :host {
   display: flex;
-  position: relative;
   width: 243px;
-  height: 327px;
   padding: 20px 21px 15px 19px;
   margin: 15px;
   border-radius: 5px;
@@ -10,10 +8,6 @@
   border-bottom: 5px solid blue;
   flex-direction: column;
   align-items: center;
-  app-button {
-    position: absolute;
-    bottom: 15px;
-  }
 }
 
 .main {
@@ -23,6 +17,7 @@
 }
 
 .title {
+  min-height: 115px;
   color: #4F4F4F;
   text-align: right;
   font-size: 20px;
