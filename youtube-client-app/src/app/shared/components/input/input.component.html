@@ -1,4 +1,11 @@
-<form>
-    <label [for]="name">{{name}}</label>
-    <input type="text" [id]="name" [(ngModel)]="inputValue" [ngModelOptions]="{standalone: true}">
-</form>
+<label [for]="id">{{id}}</label>
+<input  appErrorWarning [error]="this.errorOutPut"
+        [id]="id"
+        (blur)="detectionError(this.ngControl.control?.errors)"
+        [type]="type"
+        [disabled]="disabled"
+        [value]="value"
+        (input)="updateChanges($event)">
+<span class="error-text">{{errorOutPut}}</span>
+
+

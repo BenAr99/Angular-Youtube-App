@@ -1,8 +1,16 @@
 <section class="page">
   <div class="main">
     <span class="main-header">Login</span>
-    <app-input [name]="'Login'"></app-input>
-    <app-input [name]="'Password'"></app-input>
+    <form class="center" [formGroup]="loginForm">
+      <app-input
+
+        formControlName="email" id="login"
+      ></app-input>
+
+      <app-input
+        formControlName="password" id="password"
+      ></app-input>
+    </form>
     <div class="block-button">
       <app-button [offBackgroundButton]="true" class="off-background-button">Registration</app-button>
       <app-button (click)="login()">Login</app-button>

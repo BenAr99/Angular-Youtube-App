@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import {
+  FormControl, FormGroup, Validators,
+} from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -9,6 +12,17 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent {
   isLoggedIn?:boolean;
+
+  loginForm = new FormGroup({
+    email: new FormControl(
+      '',
+      [Validators.email, Validators.required],
+    ),
+    password: new FormControl('', [
+      Validators.minLength(8),
+      Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#?])[a-zA-Z0-9!@#?]+$/),
+      Validators.required]),
+  });
 
   constructor(
     private router: Router,
@@ -22,8 +36,10 @@ export class LoginComponent {
   }
 
   login() {
-    this.authService.isLoggedIn.next(true);
-    this.router.navigate(['/home']);
-    localStorage.setItem('token', String(this.isLoggedIn));
+    if (this.loginForm.valid) {
+      this.authService.isLoggedIn.next(true);
+      this.router.navigate(['/home']);
+      localStorage.setItem('token', String(this.isLoggedIn));
+    }
   }
 }

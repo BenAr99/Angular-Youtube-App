@@ -24,8 +24,16 @@
   margin-bottom: 12px;
 }
 
+.center {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .main {
   display: flex;
+  align-items: center;
   flex-direction: column;
 }
 
