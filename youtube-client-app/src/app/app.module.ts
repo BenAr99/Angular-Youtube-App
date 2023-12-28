@@ -18,7 +18,6 @@ import { AuthInterceptor } from './auth/auth-interceptor.service';
     CoreModule,
     RouterOutlet,
     AppRoutingModule,
-    FormsModule,
     HttpClientModule,
   ],
   providers: [
@@ -31,4 +30,5 @@ import { AuthInterceptor } from './auth/auth-interceptor.service';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+}
