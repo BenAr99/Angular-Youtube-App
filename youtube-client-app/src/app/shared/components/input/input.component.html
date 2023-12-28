@@ -1,11 +1,11 @@
 <label [for]="id">{{id}}</label>
-<input  appErrorWarning [error]="this.errorOutPut"
+<input  appErrorWarning [error]="this.errorText"
         [id]="id"
-        (blur)="detectionError(this.ngControl.control?.errors)"
+        (blur)="detectionError(getErrors())"
         [type]="type"
         [placeholder]="placeholder"
         [value]="value"
         (input)="updateChanges($event)">
-<p class="error-text">{{errorOutPut}}</p>
+<p class="error-text">{{errorText}}</p>
 
 

@@ -1,7 +1,7 @@
 import {
   Directive, HostBinding, Input, OnChanges,
 } from '@angular/core';
-import { MarkingTime } from '../enum/marking-time.enum';
+import { MarkingTime } from '../../youtube/enum/marking-time.enum';
 
 @Directive({
   selector: '[appSortColor]',

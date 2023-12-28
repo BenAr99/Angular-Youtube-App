@@ -7,6 +7,9 @@ import {
 import { ValueErrors } from '../../../auth/enum/value-errors.enum';
 import { SharedModule } from '../../shared.module';
 
+type FunctionChange = (value:string) => void;
+type FunctionTouched = () => void;
+
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
@@ -23,28 +26,28 @@ export class InputComponent {
 
   @Input() disabled = false;
 
-  errorOutPut?: string;
+  errorText?: string;
 
   constructor(public ngControl: NgControl) {
     ngControl.valueAccessor = this;
   }
 
-  onChange: any = () => {};
+  onChange: FunctionChange = () => {};
 
-  onTouched: any = () => {};
+  onTouched: FunctionTouched = () => {};
 
   value = '';
 
-  detectionError(error: ValidationErrors | null | undefined) {
-    this.errorOutPut = '';
-    if (error !== null && error !== undefined) {
+  detectionError(error?: ValidationErrors | null) {
+    this.errorText = '';
+    if (error) {
       const currentError = Object.keys(error)[0];
       if (error['required']) {
-        this.errorOutPut = `Пожалуйста введите ${this.id}`;
+        this.errorText = `Пожалуйста введите ${this.id}`;
       } else if (currentError === 'minlength' || currentError === 'maxlength') {
-        this.errorOutPut = `${this.id} ${ValueErrors[currentError as keyof typeof ValueErrors]}`;
+        this.errorText = `${this.id} ${ValueErrors[currentError as keyof typeof ValueErrors]}`;
       } else {
-        this.errorOutPut = ValueErrors[currentError as keyof typeof ValueErrors];
+        this.errorText = ValueErrors[currentError as keyof typeof ValueErrors];
       }
     }
   }
@@ -53,11 +56,11 @@ export class InputComponent {
     this.value = value;
   }
 
-  registerOnChange(fn: any): void {
+  registerOnChange(fn: FunctionChange): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: string): void {
+  registerOnTouched(fn: FunctionTouched): void {
     this.onTouched = fn;
   }
 
@@ -69,5 +72,9 @@ export class InputComponent {
     this.value = (event.target as HTMLInputElement).value;
     this.onChange(this.value);
     this.onTouched();
+  }
+
+  getErrors() {
+    return this.ngControl.control?.errors;
   }
 }
