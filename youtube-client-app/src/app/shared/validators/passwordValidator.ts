@@ -1,7 +1,7 @@
 import { AbstractControl, ValidationErrors, Validators } from '@angular/forms';
 
 export function passwordValidator(control:AbstractControl): ValidationErrors | null {
-  if (Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>?])[a-zA-Z0-9!@#$%^&*()_+\-=[\]{};':"\\|,.<>?]+$/)) {
+  if (Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>?])[a-zA-Z0-9!@#$%^&*()_+\-=[\]{};':"\\|,.<>?]+$/)(control)) {
     return {
       password: 'введите надежный пароль:'
         + 'сочетание как прописных, так и строчных букв\n'

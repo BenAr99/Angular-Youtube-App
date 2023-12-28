@@ -14,7 +14,7 @@ export class VideoResponseService {
 
   getVideoList(value?: string): Observable<VideoPreview[]> {
     let params = new HttpParams()
-      .append('key', 'token')
+      .append('key', '')
       .append('type', 'video')
       .append('part', 'snippet')
       .append('maxResult', '15');
@@ -29,7 +29,7 @@ export class VideoResponseService {
     const joinedIdArray = idArray.join(',');
     const params = new HttpParams()
       .append('id', joinedIdArray)
-      .append('key', 'token')
+      .append('key', '')
       .append('part', 'snippet')
       .append('part', 'statistics');
     return this.http.get<VideoPreviewResponse>(`videos?${params}`)

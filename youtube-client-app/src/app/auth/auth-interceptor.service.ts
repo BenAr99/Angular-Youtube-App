@@ -15,7 +15,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const currentUrl = request.urlWithParams;
-    const modifiedUrl = currentUrl.replace('key=token', `key=${this.token}`);
+    const modifiedUrl = currentUrl.replace('key=', `key=${this.token}`);
     const modifiedReq = request.clone({
       url: this.googleApiDomain + modifiedUrl,
     });
