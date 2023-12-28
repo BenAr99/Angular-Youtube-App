@@ -4,6 +4,7 @@ import {
 
 @Directive({
   selector: '[appErrorWarning]',
+  standalone: true,
 })
 export class ErrorWarningDirective implements OnChanges {
   @Input() error?: string;

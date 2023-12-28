@@ -5,6 +5,7 @@ import { MarkingTime } from '../../youtube/enum/marking-time.enum';
 
 @Directive({
   selector: '[appSortColor]',
+  standalone: true,
 })
 
 export class SortColorDirective implements OnChanges {

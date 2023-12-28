@@ -5,7 +5,7 @@ import {
   FormsModule, NgControl, ReactiveFormsModule, ValidationErrors,
 } from '@angular/forms';
 import { ValueErrors } from '../../../auth/enum/value-errors.enum';
-import { SharedModule } from '../../shared.module';
+import { ErrorWarningDirective } from '../../directives/error-warning.directive';
 
 type FunctionChange = (value:string) => void;
 type FunctionTouched = () => void;
@@ -15,7 +15,7 @@ type FunctionTouched = () => void;
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, SharedModule],
+  imports: [FormsModule, ReactiveFormsModule, ErrorWarningDirective],
 })
 export class InputComponent {
   @Input() id!: string;

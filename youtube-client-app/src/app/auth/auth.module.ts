@@ -6,7 +6,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { InputComponent } from '../shared/components/input/input.component';
 import { ButtonComponent } from '../shared/components/button/button.component';
 import { CardShellComponent } from '../shared/components/card-shell/card-shell.component';
-import { SharedModule } from '../shared/shared.module';
+import { CardFormComponent } from '../shared/components/card-form/card-form.component';
+import { CardNameComponent } from '../shared/components/card-name/card-name.component';
 
 const routes: Routes = [
   {
@@ -22,8 +23,9 @@ const routes: Routes = [
     ButtonComponent,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
-    SharedModule,
     CardShellComponent,
+    CardFormComponent,
+    CardNameComponent,
   ],
   exports: [
     RouterModule,
