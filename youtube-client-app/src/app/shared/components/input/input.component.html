@@ -1,5 +1,5 @@
 <label [for]="id">{{id}}</label>
-<input  appErrorWarning [error]="this.errorText"
+<input  appErrorWarning [appErrorWarning]="this.errorText"
         [id]="id"
         (blur)="detectionError(getErrors())"
         [type]="type"

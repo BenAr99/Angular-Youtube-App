@@ -29,13 +29,13 @@ export class CreateCardComponent {
     });
   }
 
-  createCard() {
+  createCard(): void {
     if (this.createCardForm.valid) {
       console.log('карта создалась');
     }
   }
 
-  reset() {
+  reset():void {
     this.createCardForm.reset();
   }
 }

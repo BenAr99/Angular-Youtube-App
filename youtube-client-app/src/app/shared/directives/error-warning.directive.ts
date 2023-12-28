@@ -7,14 +7,14 @@ import {
   standalone: true,
 })
 export class ErrorWarningDirective implements OnChanges {
-  @Input() error?: string;
+  @Input() appErrorWarning?: string;
 
   @HostBinding('style.background')
     background?:string;
 
   ngOnChanges(): void {
     this.background = '#E0E0E0';
-    if (this.error) {
+    if (this.appErrorWarning) {
       this.background = '#f1b5b5';
     }
   }
