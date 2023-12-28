@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ValidatorDateService } from '../../services/validator-date.service';
+import { validatorDate } from '../../../shared/validators/dateValidator';
+import { requiredValidator } from '../../../shared/validators/requiredValidator';
+import { minLengthValidator } from '../../../shared/validators/minLengthValidator';
+import { maxLengthValidator } from '../../../shared/validators/maxLengthValidator';
 
 @Component({
   selector: 'app-create-card',
@@ -10,22 +13,24 @@ import { ValidatorDateService } from '../../services/validator-date.service';
 export class CreateCardComponent {
   createCardForm: FormGroup;
 
-  constructor(private validatorDate: ValidatorDateService) {
+  constructor() {
     this.createCardForm = this.initForm();
   }
 
   initForm():FormGroup {
     return new FormGroup({
       title: new FormControl('', [
-        Validators.minLength(3),
-        Validators.maxLength(20),
-        Validators.required]),
-      description: new FormControl('', Validators.maxLength(255)),
-      img: new FormControl('', Validators.required),
-      video: new FormControl('', Validators.required),
+        requiredValidator('название'),
+        minLengthValidator(3, 'название'),
+        maxLengthValidator(20, 'название'),
+      ]),
+      description: new FormControl('', maxLengthValidator(255, 'описание')),
+      img: new FormControl('', requiredValidator('страницу')),
+      video: new FormControl('', requiredValidator('видео')),
       date: new FormControl('', [
-        this.validatorDate.validatorDate(),
-        Validators.required]),
+        requiredValidator('дату'),
+        validatorDate,
+      ]),
     });
   }
 

@@ -22,7 +22,7 @@ export class DetailVideoPreviewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataService.getDataById([String(this.route.snapshot.paramMap.get('id'))])
+    this.dataService.getVideoPreviews([String(this.route.snapshot.paramMap.get('id'))])
       .subscribe((video) => {
         this.detailCard = video[0];
         this.date = this.detailCard?.snippet?.publishedAt;

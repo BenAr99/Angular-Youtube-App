@@ -37,13 +37,13 @@ export class VideoPreviewListComponent implements OnInit {
     this.filterChangeService.searchValueSubject.pipe(
       debounceTime(1000),
       filter((item) => item.length >= 3),
-      switchMap((value) => this.dataService.getData(value)),
+      switchMap((value) => this.dataService.getVideoList(value)),
       map((data) => {
         return data.map((video) => {
           return video.id.videoId;
         });
       }),
-      switchMap((idArray) => this.dataService.getDataById(idArray)),
+      switchMap((idArray) => this.dataService.getVideoPreviews(idArray)),
     ).subscribe({
       next: (data) => {
         this.videoData = data;

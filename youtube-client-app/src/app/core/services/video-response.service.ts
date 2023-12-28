@@ -12,7 +12,7 @@ export class VideoResponseService {
 
   }
 
-  getData(value?: string): Observable<VideoPreview[]> {
+  getVideoList(value?: string): Observable<VideoPreview[]> {
     let params = new HttpParams()
       .append('key', 'token')
       .append('type', 'video')
@@ -25,7 +25,7 @@ export class VideoResponseService {
       .pipe(map(this.mapData));
   }
 
-  getDataById(idArray: string[]) {
+  getVideoPreviews(idArray: string[]) {
     const joinedIdArray = idArray.join(',');
     const params = new HttpParams()
       .append('id', joinedIdArray)

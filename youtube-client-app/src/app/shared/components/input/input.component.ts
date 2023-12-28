@@ -38,17 +38,11 @@ export class InputComponent {
 
   value = '';
 
-  detectionError(error?: ValidationErrors | null) {
+  detectionError(error?: ValidationErrors | null):void {
     this.errorText = '';
     if (error) {
       const currentError = Object.keys(error)[0];
-      if (error['required']) {
-        this.errorText = `Пожалуйста введите ${this.id}`;
-      } else if (currentError === 'minlength' || currentError === 'maxlength') {
-        this.errorText = `${this.id} ${ValueErrors[currentError as keyof typeof ValueErrors]}`;
-      } else {
-        this.errorText = ValueErrors[currentError as keyof typeof ValueErrors];
-      }
+      this.errorText = error[currentError];
     }
   }
 

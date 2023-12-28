@@ -4,6 +4,10 @@ import {
   FormControl, FormGroup, Validators,
 } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { minLengthValidator } from '../../../shared/validators/minLengthValidator';
+import { requiredValidator } from '../../../shared/validators/requiredValidator';
+import { emailValidator } from '../../../shared/validators/emailValidator';
+import { passwordValidator } from '../../../shared/validators/passwordValidator';
 
 @Component({
   selector: 'app-login',
@@ -34,12 +38,12 @@ export class LoginComponent implements OnInit {
     return new FormGroup({
       email: new FormControl(
         '',
-        [Validators.email, Validators.required],
+        [requiredValidator('почту'), emailValidator],
       ),
       password: new FormControl('', [
-        Validators.minLength(8),
-        Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>?])[a-zA-Z0-9!@#$%^&*()_+\-=[\]{};':"\\|,.<>?]+$/),
-        Validators.required]),
+        requiredValidator('пароль'),
+        minLengthValidator(8, 'пароль'),
+        passwordValidator]),
     });
   }
 
