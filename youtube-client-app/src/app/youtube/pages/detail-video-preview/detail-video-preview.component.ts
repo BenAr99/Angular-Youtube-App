@@ -24,6 +24,8 @@ export class DetailVideoPreviewComponent implements OnInit {
   ngOnInit() {
     this.dataService.getVideoPreviews([String(this.route.snapshot.paramMap.get('id'))])
       .subscribe((video) => {
+        debugger;
+        console.log(video, 'video');
         this.detailCard = video[0];
         this.date = this.detailCard?.snippet?.publishedAt;
       });

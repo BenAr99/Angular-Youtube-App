@@ -8,27 +8,19 @@ import { ButtonComponent } from '../shared/components/button/button.component';
 import { CardShellComponent } from '../shared/components/card-shell/card-shell.component';
 import { CardFormComponent } from '../shared/components/card-form/card-form.component';
 import { CardNameComponent } from '../shared/components/card-name/card-name.component';
+import { AuthRoutingModule } from './auth-routing.module';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: LoginComponent,
-  },
-];
 @NgModule({
   declarations: [LoginComponent],
   imports: [
     CommonModule,
     InputComponent,
     ButtonComponent,
-    RouterModule.forChild(routes),
     ReactiveFormsModule,
     CardShellComponent,
     CardFormComponent,
     CardNameComponent,
-  ],
-  exports: [
-    RouterModule,
+    AuthRoutingModule,
   ],
 })
 export class AuthModule { }

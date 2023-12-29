@@ -21,26 +21,16 @@ export class VideoResponseService {
     if (value) {
       params = params.append('q', value);
     }
-    return this.http.get<VideoPreviewResponse>(`search?${params}`)
-      .pipe(map(this.mapData));
+    return this.http.get<VideoPreview[]>(`search?${params}`);
   }
 
-  getVideoPreviews(idArray: string[]) {
+  getVideoPreviews(idArray: string[]): Observable<VideoPreview[]> {
     const joinedIdArray = idArray.join(',');
     const params = new HttpParams()
       .append('id', joinedIdArray)
       .append('key', '')
       .append('part', 'snippet')
       .append('part', 'statistics');
-    return this.http.get<VideoPreviewResponse>(`videos?${params}`)
-      .pipe(map(this.mapData));
-  }
-
-  private mapData(response:VideoPreviewResponse) {
-    return response.items.map((item) => {
-      // eslint-disable-next-line no-param-reassign
-      item.snippet.publishedAt = new Date(item.snippet.publishedAt);
-      return item;
-    });
+    return this.http.get<VideoPreview[]>(`videos?${params}`);
   }
 }
