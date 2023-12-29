@@ -7,13 +7,9 @@ import {
 } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { VideoPreviewResponse } from '../youtube/interfaces/video-preview-response.interface';
-import { VideoResponseService } from '../core/services/video-response.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private http:HttpClient) {
-  }
-
   readonly token = 'AIzaSyAHtAeF63-xGd4jO6yITz0f6BT7G0gNNcw';
 
   readonly googleApiDomain = 'https://www.googleapis.com/youtube/v3/';

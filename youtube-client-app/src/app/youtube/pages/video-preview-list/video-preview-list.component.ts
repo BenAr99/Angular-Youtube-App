@@ -39,7 +39,6 @@ export class VideoPreviewListComponent implements OnInit {
       filter((item) => item.length >= 3),
       switchMap((value) => this.dataService.getVideoList(value)),
       map((data) => {
-        console.log(data, 'data');
         return data.map((video) => {
           return video.id.videoId;
         });
