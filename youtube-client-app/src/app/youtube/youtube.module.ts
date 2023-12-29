@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { VideoModule } from './components/video/video.module';
@@ -13,21 +12,7 @@ import { InputComponent } from '../shared/components/input/input.component';
 import { CardFormComponent } from '../shared/components/card-form/card-form.component';
 import { CardNameComponent } from '../shared/components/card-name/card-name.component';
 import { SortColorDirective } from '../shared/directives/sort-color.directive';
-
-const routes: Routes = [
-  {
-    path: '',
-    component: VideoPreviewListComponent,
-  },
-  {
-    path: 'detail/:id',
-    component: DetailVideoPreviewComponent,
-  },
-  {
-    path: 'createCard',
-    component: CreateCardComponent,
-  },
-];
+import { YoutubeRoutingModule } from './youtube-routing.module';
 
 @NgModule({
   declarations: [
@@ -41,7 +26,6 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
     VideoModule,
     CardShellComponent,
     ButtonComponent,
@@ -50,9 +34,7 @@ const routes: Routes = [
     CardFormComponent,
     CardNameComponent,
     SortColorDirective,
-  ],
-  exports: [
-    RouterModule,
+    YoutubeRoutingModule,
   ],
 })
 export class YoutubeModule { }
