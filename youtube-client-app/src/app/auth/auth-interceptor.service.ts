@@ -18,20 +18,19 @@ export class AuthInterceptor implements HttpInterceptor {
 
   readonly googleApiDomain = 'https://www.googleapis.com/youtube/v3/';
 
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const currentUrl = request.urlWithParams;
     const modifiedUrl = currentUrl.replace('key=', `key=${this.token}`);
     const modifiedReq = request.clone({
       url: this.googleApiDomain + modifiedUrl,
     });
-    return next.handle(modifiedReq).pipe(map((event: HttpEvent<any>) => {
+    return next.handle(modifiedReq).pipe(map((event: HttpEvent<VideoPreviewResponse>) => {
       if (event instanceof HttpResponse) {
         if (event.body) {
           const modifiedBody = this.mapData(event.body);
           return event.clone({ body: modifiedBody });
         }
       }
-      console.log(event);
       return event;
     }));
   }
@@ -39,6 +38,7 @@ export class AuthInterceptor implements HttpInterceptor {
   private mapData(response:VideoPreviewResponse) {
     if (response) {
       return response.items.map((item) => {
+        // eslint-disable-next-line no-param-reassign
         item.snippet.publishedAt = new Date(item.snippet.publishedAt);
         return item;
       });
