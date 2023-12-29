@@ -3,7 +3,7 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor, HttpClient, HttpResponse,
+  HttpInterceptor, HttpResponse,
 } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { VideoPreviewResponse } from '../youtube/interfaces/video-preview-response.interface';
@@ -14,7 +14,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
   readonly googleApiDomain = 'https://www.googleapis.com/youtube/v3/';
 
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  intercept(request: HttpRequest<never>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const currentUrl = request.urlWithParams;
     const modifiedUrl = currentUrl.replace('key=', `key=${this.token}`);
     const modifiedReq = request.clone({

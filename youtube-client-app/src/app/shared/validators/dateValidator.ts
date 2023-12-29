@@ -1,4 +1,4 @@
-import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 export function validatorDate(control:AbstractControl):ValidationErrors | null {
   const value = new Date(control.value).getTime();

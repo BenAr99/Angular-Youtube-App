@@ -4,7 +4,6 @@ import {
 import {
   FormsModule, NgControl, ReactiveFormsModule, ValidationErrors,
 } from '@angular/forms';
-import { ValueErrors } from '../../../auth/enum/value-errors.enum';
 import { ErrorWarningDirective } from '../../directives/error-warning.directive';
 
 type FunctionChange = (value:string) => void;

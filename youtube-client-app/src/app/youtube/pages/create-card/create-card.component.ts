@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { validatorDate } from '../../../shared/validators/dateValidator';
 import { requiredValidator } from '../../../shared/validators/requiredValidator';
 import { minLengthValidator } from '../../../shared/validators/minLengthValidator';
