@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "deploy": "ng build --output-path ../docs --base-href /benar99-ANGULAR2023Q4/"
+    "deploy": "ng build --output-path ../docs --base-href /Angular-Youtube-App/"
   },
   "private": true,
   "dependencies": {
