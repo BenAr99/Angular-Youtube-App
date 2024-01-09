@@ -1,0 +1,40 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #E5E5E5;
+  padding-left: 265px;
+}
+
+app-button :first-child {
+  width: 50px;
+}
+
+.logo-searchFilter {
+  padding-right: 20px;
+}
+
+div {
+  display: flex;
+  align-items: center;
+}
+
+.main-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #E5E5E5;
+}
+
+.setting {
+  background: #2F80ED;
+  border-radius: 0 4px 4px 0;
+  box-shadow: 2px 0 4px 0 #2F80ED;
+  cursor: pointer;
+}
+
+.button-img-setting {
+  margin-top: 5px;
+  border: 0;
+}

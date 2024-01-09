@@ -1,0 +1,28 @@
+.search-input::placeholder {
+  color: #929292;
+  font-size: 12px;
+}
+
+.search-input {
+  margin-left: 10px;
+  background: #EFEFEF;
+  width: 396px;
+  padding: 5px 5px 3px;
+  outline: none;
+  border: none;
+}
+
+.search-button {
+  cursor: pointer;
+  font-size: 12px;
+  padding: 5px 22px;
+  border: #2F80ED;
+  color: #FFFFFF;
+  margin-right: 10px;
+}
+
+.search-button {
+  background: #2F80ED;
+  border-radius: 0 4px 4px 0;
+  box-shadow: 2px 0 4px 0 #2F80ED;
+}

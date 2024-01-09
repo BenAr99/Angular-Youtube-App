@@ -1,0 +1,24 @@
+<app-card-shell>
+  <app-card-name>Create new card</app-card-name>
+  <app-card-form [formGroup]="createCardForm">
+    <app-input
+      formControlName="title" id="title"
+    ></app-input>
+    <app-input
+      formControlName="description" id="description"
+    ></app-input>
+    <app-input
+      formControlName="img" id="img"
+    ></app-input>
+    <app-input
+      formControlName="video" id="video"
+    ></app-input>
+    <app-input
+      formControlName="date" id="date" placeholder="year.month.date"
+    ></app-input>
+  </app-card-form>
+  <div class="block-button">
+    <app-button (click)="reset()">Reset</app-button>
+    <app-button (click)="createCard()">Create card</app-button>
+  </div>
+</app-card-shell>
