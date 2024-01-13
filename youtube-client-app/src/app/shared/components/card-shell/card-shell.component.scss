@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page {
+  position: absolute;
+  bottom: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 350px;
+  background: #F2F2F2;
+  border-radius: 5px;
+  padding: 28px 20px 36px;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

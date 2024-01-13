@@ -1,0 +1,10 @@
+<span>Sorting by:</span>
+<button class="interactive" (click)="sortDataDate()">date</button>
+<button class="interactive" (click)="sortDataViews()">count of views</button>
+<button class="interactive" (click)="sortDataWordOrSentance()">by word or sentance</button>
+<form (ngSubmit)="sortDataWordOrSentance()">
+  <label for="sortSearch"></label>
+  <input  [(ngModel)]="wordOrSentance"  id="sortSearch" name="wordOrSentance">
+</form>
+
+

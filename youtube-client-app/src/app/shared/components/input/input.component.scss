@@ -1,0 +1,39 @@
+:host{
+  width: 280px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+input {
+  width: 270px;
+  background: #E0E0E0;
+  border: 1px;
+  padding: 5px 5px 3px;
+  outline: none;
+}
+
+label {
+  text-align: left;
+  width: 100%;
+  text-transform: capitalize;
+  color: #828282;
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.error-text {
+  max-width: 275px;
+  padding-top: 5px;
+  color: #e64646;
+  text-align: right;
+  font-size: 12px;
+  font-style: italic;
+  padding-right: 5px;
+}
+
+.error-text:first-letter {
+  text-transform: uppercase;
+}

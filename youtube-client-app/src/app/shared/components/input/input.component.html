@@ -1,0 +1,11 @@
+<label [for]="id">{{id}}</label>
+<input  appErrorWarning [appErrorWarning]="this.errorText"
+        [id]="id"
+        (blur)="detectionError(getErrors())"
+        [type]="type"
+        [placeholder]="placeholder"
+        [value]="value"
+        (input)="updateChanges($event)">
+<p class="error-text">{{errorText}}</p>
+
+
